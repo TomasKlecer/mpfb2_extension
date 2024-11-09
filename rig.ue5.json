@@ -950,26 +950,32 @@
     },
     "pelvis": {
         "head": {
-            "cube_name": "joint-pelvis",
             "default_position": [
                 0.0,
                 -0.013204200193285942,
                 0.05597670003771782
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4317,
+                4215
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "",
         "rigify": {},
         "roll": 0,
         "tail": {
-            "cube_name": "joint-spine-4",
             "default_position": [
                 0.0,
                 0.02552914060652256,
                 0.13574758172035217
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4367,
+                4387
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -1421,26 +1427,32 @@
     },
     "spine_01": {
         "head": {
-            "cube_name": "joint-spine-4",
             "default_position": [
                 0.0,
                 0.025529200211167336,
                 0.1357475072145462
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4367,
+                4387
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "pelvis",
         "rigify": {},
         "roll": 0,
         "tail": {
-            "cube_name": "joint-spine-3",
             "default_position": [
                 0.0,
                 0.010111729614436626,
                 0.20200671255588531
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4121,
+                4188
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -1448,26 +1460,32 @@
     },
     "spine_02": {
         "head": {
-            "cube_name": "joint-spine-3",
             "default_position": [
                 0.0,
                 0.010111699812114239,
                 0.20200669765472412
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4121,
+                4188
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "spine_01",
         "rigify": {},
         "roll": 0.0,
         "tail": {
-            "cube_name": "joint-spine-2",
             "default_position": [
                 0.0,
                 0.00838004145771265,
                 0.2770608067512512
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4071,
+                4030
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -1475,26 +1493,32 @@
     },
     "spine_03": {
         "head": {
-            "cube_name": "joint-spine-2",
             "default_position": [
                 0.0,
                 0.008379999548196793,
                 0.2770608067512512
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4071,
+                4030
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "spine_02",
         "rigify": {},
         "roll": 0.0,
         "tail": {
-            "cube_name": "joint-spine-1",
             "default_position": [
                 0.0,
                 0.01869996264576912,
                 0.4209800362586975
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4088,
+                3974
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -1502,13 +1526,16 @@
     },
     "spine_04": {
         "head": {
-            "cube_name": "joint-spine-1",
             "default_position": [
                 0.0,
                 0.01869996264576912,
                 0.4209800362586975
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                4088,
+                3974
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "spine_03",
