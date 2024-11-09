@@ -1135,8 +1135,7 @@ class RigService:
 
         bpy.ops.object.mode_set(mode='EDIT', toggle=False)
         bpy.ops.transform.rotate(value=-3.14159265, orient_axis='X', orient_type='GLOBAL')
-        bpy.context.object.data.edit_bones['ball_l'].roll = 1.57079633
-
+        bpy.context.object.data.edit_bones['ball_l'].roll = 1.48352986
         #tweak right ball
         bpy.ops.object.mode_set(mode='POSE', toggle=False)
         bpy.ops.pose.select_all(action='DESELECT')
@@ -1145,6 +1144,27 @@ class RigService:
         bpy.ops.object.mode_set(mode='EDIT', toggle=False)
         bpy.ops.transform.rotate(value=-3.14159265, orient_axis='X', orient_type='GLOBAL')
         bpy.context.object.data.edit_bones['ball_r'].roll = 0
+        
+        #tweak right fingers
+        bpy.context.object.data.edit_bones['thumb_01_r'].roll = 3.14159265 
+        bpy.context.object.data.edit_bones['thumb_02_r'].roll = 3.4906585
+        bpy.context.object.data.edit_bones['thumb_03_r'].roll = 3.4906585
+        bpy.context.object.data.edit_bones['index_metacarpal_r'].roll = 2.35619449
+        bpy.context.object.data.edit_bones['index_01_r'].roll = 2.35619449
+        bpy.context.object.data.edit_bones['index_02_r'].roll = 2.35619449
+        bpy.context.object.data.edit_bones['index_03_r'].roll = 2.35619449
+        bpy.context.object.data.edit_bones['middle_metacarpal_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['middle_01_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['middle_02_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['middle_03_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['ring_metacarpal_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['ring_01_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['ring_02_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['ring_03_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['pinky_metacarpal_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['pinky_01_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['pinky_02_r'].roll = 1.74532925
+        bpy.context.object.data.edit_bones['pinky_03_r'].roll = 1.74532925
 
 
 
