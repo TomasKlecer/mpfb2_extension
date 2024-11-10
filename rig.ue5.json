@@ -142,26 +142,32 @@
     },
     "clavicle_l": {
         "head": {
-            "cube_name": "joint-l-clavicle",
             "default_position": [
                 0.02273619920015335,
                 -0.021620800718665123,
                 0.5248016715049744
             ],
-            "strategy": "CUBE"
+           "strategy": "MEAN",
+            "vertex_indices": [
+                1550,
+                8198
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "spine_05",
         "rigify": {},
         "roll": 1.6565302610397339,
         "tail": {
-            "cube_name": "joint-l-shoulder",
             "default_position": [
                 0.17003968358039856,
                 -0.019311191514134407,
                 0.5021340847015381
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                8292,
+                10423
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -169,26 +175,32 @@
     },
     "clavicle_r": {
         "head": {
-            "cube_name": "joint-r-clavicle",
             "default_position": [
                 -0.02273619920015335,
                 -0.021620800718665123,
                 0.5248016715049744
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                1514,
+                1550
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "spine_05",
         "rigify": {},
         "roll": 0.523598776,
         "tail": {
-            "cube_name": "joint-r-shoulder",
             "default_position": [
                 -0.17003968358039856,
                 -0.019311191514134407,
                 0.5021340847015381
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                3756,
+                1620
+            ]
         },
         "use_connect": false,
         "use_inherit_rotation": true,
@@ -1806,13 +1818,16 @@
     },
     "upperarm_l": {
         "head": {
-            "cube_name": "joint-l-shoulder",
             "default_position": [
                 0.1700395941734314,
                 -0.019311200827360153,
                 0.5021342039108276
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                8292,
+                10423
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "clavicle_l",
@@ -1833,13 +1848,16 @@
     },
     "upperarm_r": {
         "head": {
-            "cube_name": "joint-r-shoulder",
             "default_position": [
                 -0.1700395941734314,
                 -0.019311200827360153,
                 0.5021342039108276
             ],
-            "strategy": "CUBE"
+            "strategy": "MEAN",
+            "vertex_indices": [
+                3756,
+                1620
+            ]
         },
         "inherit_scale": "FULL",
         "parent": "clavicle_r",

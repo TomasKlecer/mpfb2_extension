@@ -1124,9 +1124,13 @@ class RigService:
         armature_object.pose.bones.get('foot_l').bone.select = True
         armature_object.pose.bones.get('ik_foot_r').bone.select = True
         armature_object.pose.bones.get('foot_r').bone.select = True
+
                 
         bpy.ops.object.mode_set(mode='EDIT', toggle=False)
         bpy.ops.transform.rotate(value=-1.22173048, orient_axis='X', orient_type='GLOBAL')
+        
+        bpy.context.object.data.edit_bones['foot_l'].roll = -0.0610865238
+        bpy.context.object.data.edit_bones['ik_foot_l'].roll = -0.0610865238
         
         #tweak left ball
         bpy.ops.object.mode_set(mode='POSE', toggle=False)
@@ -1145,6 +1149,11 @@ class RigService:
         bpy.ops.transform.rotate(value=-3.14159265, orient_axis='X', orient_type='GLOBAL')
         bpy.context.object.data.edit_bones['ball_r'].roll = 0
         
+        #tweak right arm
+        bpy.context.object.data.edit_bones['upperarm_r'].roll = -2.0943951
+        bpy.context.object.data.edit_bones['lowerarm_r'].roll = 4.13643033
+        bpy.context.object.data.edit_bones['hand_r'].roll = 2.40855437
+
         #tweak right fingers
         bpy.context.object.data.edit_bones['thumb_01_r'].roll = 3.14159265 
         bpy.context.object.data.edit_bones['thumb_02_r'].roll = 3.4906585
