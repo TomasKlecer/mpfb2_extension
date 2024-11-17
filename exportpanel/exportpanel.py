@@ -16,7 +16,7 @@ class MPFB_PT_Export_Panel(Abstract_Panel):
 
     def _export_ue5(self, scene, layout):
         box = self._create_box(layout, "Export to UE5")
-        box.label(text="Select mesh and UE5 armature.")
+        box.label(text="Export to FBX with UE5 settings.")
         box.operator("mpfb.export_ue5")
 
     def draw(self, context):
