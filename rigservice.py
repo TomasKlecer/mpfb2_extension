@@ -1100,7 +1100,7 @@ class RigService:
         bpy.ops.pose.select_all(action='DESELECT')
 
         # Select the bones
-        bones_to_select = ['thigh_l', 'calf_l', 'foot_l', 'ik_foot_l', 'ball_l', 'clavicle_r', 'upperarm_r', 'lowerarm_r', 'hand_r', 'thumb_01_r', 'thumb_02_r', 'thumb_03_r', 'index_metacarpal_r', 'index_01_r', 'index_02_r', 'index_03_r', 'middle_metacarpal_r', 'middle_01_r', 'middle_02_r', 'middle_03_r', 'ring_metacarpal_r', 'ring_01_r', 'ring_02_r', 'ring_03_r', 'pinky_metacarpal_r', 'pinky_01_r', 'pinky_02_r', 'pinky_03_r']
+        bones_to_select = ['thigh_l', 'calf_l', 'foot_l', 'ik_foot_l', 'clavicle_r', 'upperarm_r', 'lowerarm_r', 'hand_r', 'thumb_01_r', 'thumb_02_r', 'thumb_03_r', 'index_metacarpal_r', 'index_01_r', 'index_02_r', 'index_03_r', 'middle_metacarpal_r', 'middle_01_r', 'middle_02_r', 'middle_03_r', 'ring_metacarpal_r', 'ring_01_r', 'ring_02_r', 'ring_03_r', 'pinky_metacarpal_r', 'pinky_01_r', 'pinky_02_r', 'pinky_03_r']
         for bone_name in bones_to_select:
             bone = armature_object.pose.bones.get(bone_name)
             if bone:
@@ -1132,14 +1132,33 @@ class RigService:
         bpy.context.object.data.edit_bones['foot_l'].roll = -0.0610865238
         bpy.context.object.data.edit_bones['ik_foot_l'].roll = -0.0610865238
         
-        #tweak left ball
+        #tweak left ball - this bone does weird stuff after export, these steps fix the problem for some reason...
         bpy.ops.object.mode_set(mode='POSE', toggle=False)
         bpy.ops.pose.select_all(action='DESELECT')
-        armature_object.pose.bones.get('ball_l').bone.select = True
 
+        armature_object.pose.bones.get('ball_l').bone.select = True
         bpy.ops.object.mode_set(mode='EDIT', toggle=False)
         bpy.ops.transform.rotate(value=-3.14159265, orient_axis='X', orient_type='GLOBAL')
-        bpy.context.object.data.edit_bones['ball_l'].roll = 1.48352986
+
+        #reset ball_l matrix
+        import mathutils
+        bpy.ops.object.mode_set(mode='POSE', toggle=False)
+        pose_bone = bpy.context.object.pose.bones['ball_l']
+        original_matrix_world = pose_bone.matrix.copy()
+        pose_bone.matrix = mathutils.Matrix.Identity(4)
+        #aply ball_l transform
+        bpy.ops.object.mode_set(mode='POSE', toggle=False)
+        bpy.ops.pose.armature_apply(selected=True)
+        #reset to original position
+        pose_bone.location = original_matrix_world.to_translation()
+        bpy.ops.object.mode_set(mode='POSE', toggle=False)
+        bpy.ops.pose.armature_apply(selected=True)      
+        #rotate again
+        armature_object.pose.bones.get('ball_l').bone.select = True
+        bpy.ops.object.mode_set(mode='EDIT', toggle=False)
+        bpy.ops.transform.rotate(value=-3.14159265, orient_axis='X', orient_type='GLOBAL')
+        bpy.context.object.data.edit_bones['ball_l'].roll =-1.570796334
+
         #tweak right ball
         bpy.ops.object.mode_set(mode='POSE', toggle=False)
         bpy.ops.pose.select_all(action='DESELECT')
@@ -1175,8 +1194,9 @@ class RigService:
         bpy.context.object.data.edit_bones['pinky_02_r'].roll = 1.74532925
         bpy.context.object.data.edit_bones['pinky_03_r'].roll = 1.74532925
 
-
-
+        #aply transforms
+        bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 
         # Switch back to Object mode
         bpy.ops.object.mode_set(mode='OBJECT', toggle=False)

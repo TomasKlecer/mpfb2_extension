@@ -45,7 +45,7 @@
         "inherit_scale": "FULL",
         "parent": "foot_l",
         "rigify": {},
-        "roll": -1.8022286891937256,
+        "roll": 3.4906585,
         "tail": {
             "cube_name": "joint-l-toe-2-4",
             "default_position": [
